@@ -219,22 +219,22 @@ namespace Zadanie3
             _basicEffect.CurrentTechnique.Passes[0].Apply();
             if (gridOn)
                 GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, gridLines, 0, gridSize * 4 + 2);
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, sun, 0, sun.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, sun, 0, 12);
             _basicEffect.World = mercury;
             _basicEffect.CurrentTechnique.Passes[0].Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, mercuryVertex, 0, mercuryVertex.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, mercuryVertex, 0, 12);
             _basicEffect.World = venus;
             _basicEffect.CurrentTechnique.Passes[0].Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, venusVertex, 0, venusVertex.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, venusVertex, 0, 12);
             _basicEffect.World = earth;
             _basicEffect.CurrentTechnique.Passes[0].Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, earthVertex, 0, earthVertex.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, earthVertex, 0, 12);
             _basicEffect.World = luna;
             _basicEffect.CurrentTechnique.Passes[0].Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, lunaVertex, 0, lunaVertex.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, lunaVertex, 0, 12);
             _basicEffect.World = mars;
             _basicEffect.CurrentTechnique.Passes[0].Apply();
-            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, marsVertex, 0, marsVertex.Length / 3);
+            GraphicsDevice.DrawUserPrimitives(PrimitiveType.TriangleList, marsVertex, 0, 12);
 
 
 

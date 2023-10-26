@@ -15,9 +15,9 @@ namespace Zadanie3
         float _planetOrbitRadius = 0.0f;
         float _lunaOrbitRadius = 0.0f;
         float _rotationSpeedAroundSun = 0.0f;
-        float _rotationSpeedOnOwnAxis = 0.0f;
+        float _rotationSpeedOwn = 0.0f;
         float _lunaRotationSpeedAroundPlanet = 0.0f;
-        float _lunaRotationSpeedOnOwnAxis = 0.0f;
+        float _lunaRotationSpeedOwn = 0.0f;
         private float _center;
         Vector3 _planetOrbitPosition;
 
@@ -26,18 +26,18 @@ namespace Zadanie3
             _center = planetOrbitRadius;
             _planetOrbitRadius = planetOrbitRadius;
             _rotationSpeedAroundSun = rotationSpeedAroundSun;
-            _rotationSpeedOnOwnAxis = rotationSpeedOnOwnAxis;
+            _rotationSpeedOwn = rotationSpeedOnOwnAxis;
         }
 
-        public Planet(float planetOrbitRadius, float lunaOrbitRadius, float rotationSpeedAroundSun, float rotationSpeedOnOwnAxis, float lunaRotationSpeedAroundPlanet, float lunaRotationSpeedOnOwnAxis)
+        public Planet(float planetOrbitRadius, float lunaOrbitRadius, float rotationSpeedAroundSun, float rotationSpeedOwn, float lunaRotationSpeedAroundPlanet, float lunaRotationSpeedOwn)
         {
             _center = planetOrbitRadius;
             _lunaOrbitRadius = lunaOrbitRadius;
             _planetOrbitRadius = planetOrbitRadius;
             _rotationSpeedAroundSun = rotationSpeedAroundSun;
-            _rotationSpeedOnOwnAxis = rotationSpeedOnOwnAxis;
+            _rotationSpeedOwn = rotationSpeedOwn;
             _lunaRotationSpeedAroundPlanet = lunaRotationSpeedAroundPlanet;
-            _lunaRotationSpeedOnOwnAxis = lunaRotationSpeedOnOwnAxis;
+            _lunaRotationSpeedOwn = lunaRotationSpeedOwn;
         }
 
         public VertexPositionColor[] generatePlanet(float dist, float size, Color[] colors)
@@ -94,9 +94,9 @@ namespace Zadanie3
             Matrix translationToCenter = Matrix.CreateTranslation(-center);
             Matrix translationFromCenter = Matrix.CreateTranslation(center);
 
-            Matrix rotationOnOwnAxis = Matrix.CreateRotationY(MathHelper.ToRadians(_rotationSpeedOnOwnAxis));
+            Matrix rotationOwn = Matrix.CreateRotationY(MathHelper.ToRadians(_rotationSpeedOwn));
             planet = Matrix.Multiply(translationToCenter, planet);
-            planet = Matrix.Multiply(rotationOnOwnAxis, planet); 
+            planet = Matrix.Multiply(rotationOwn, planet); 
             planet = Matrix.Multiply(translationFromCenter, planet); 
 
             _planetOrbitPosition = new Vector3(
@@ -124,10 +124,10 @@ namespace Zadanie3
 
             Matrix translationFromPlanetCenter = Matrix.CreateTranslation(planetCenter);
 
-            Matrix rotationOnOwnAxis = Matrix.CreateRotationY(MathHelper.ToRadians(_lunaRotationSpeedOnOwnAxis));
+            Matrix rotationOwn = Matrix.CreateRotationY(MathHelper.ToRadians(_lunaRotationSpeedOwn));
 
             luna = Matrix.Multiply(translationToPlanetCenter, luna);
-            luna = Matrix.Multiply(rotationOnOwnAxis, luna);
+            luna = Matrix.Multiply(rotationOwn, luna);
             luna = Matrix.Multiply(translationFromPlanetCenter, luna);
 
             Vector3 orbitPosition = new Vector3(
